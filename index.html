@@ -1,535 +1,1442 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SS UNIVERSE | THE ULTIMATE ECOSYSTEM</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* --- DYNAMIC & ADVANCED THEME ENGINE --- */
-        :root {
-            /* DEFAULT THEME (With Stunning Background Image) */
-            --bg-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
-            --bg-color: #000428;
-            --header-bg: rgba(0, 4, 20, 0.85);
-            --glass: rgba(20, 30, 50, 0.6);
-            --accent: #00f2fe;
-            --border: rgba(0, 242, 254, 0.3);
-            --text-white: #ffffff;
-            --text-muted: #b0c4de;
-            --glow: 0 0 20px rgba(0, 242, 254, 0.8);
-            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SS UNIVERSE | THE ULTIMATE ECOSYSTEM</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ====================================================
+   SS UNIVERSE — ULTRA PREMIUM DESIGN SYSTEM
+   ==================================================== */
 
-        body.dark-theme {
-            /* PURE DARK THEME */
-            --bg-image: none;
-            --bg-color: #050505;
-            --header-bg: rgba(0, 0, 0, 0.95);
-            --glass: #111111;
-            --accent: #ff0055;
-            --border: rgba(255, 0, 85, 0.4);
-            --text-white: #ffffff;
-            --text-muted: #888888;
-            --glow: 0 0 20px rgba(255, 0, 85, 0.8);
-        }
+:root {
+  --bg-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
+  --bg-color: #000010;
+  --header-bg: rgba(0,2,18,0.92);
+  --glass: rgba(10,20,50,0.55);
+  --glass2: rgba(0,242,254,0.05);
+  --accent: #00f2fe;
+  --accent2: #4facfe;
+  --accent3: #7f00ff;
+  --border: rgba(0,242,254,0.25);
+  --border2: rgba(0,242,254,0.08);
+  --text-white: #ffffff;
+  --text-muted: #8aafc8;
+  --glow: 0 0 25px rgba(0,242,254,0.7);
+  --glow2: 0 0 50px rgba(0,242,254,0.3);
+  --tr: all 0.45s cubic-bezier(0.25,0.8,0.25,1);
+  --sidebar-w: 300px;
+}
 
-        body.light-theme {
-            /* PURE LIGHT THEME (Perfectly Visible) */
-            --bg-image: none;
-            --bg-color: #f0f4f8;
-            --header-bg: rgba(255, 255, 255, 0.95);
-            --glass: #ffffff;
-            --accent: #0056b3;
-            --border: rgba(0, 86, 179, 0.3);
-            --text-white: #111827;
-            --text-muted: #4b5563;
-            --glow: 0 5px 15px rgba(0, 86, 179, 0.2);
-        }
+body.dark-theme {
+  --bg-image: none;
+  --bg-color: #030303;
+  --header-bg: rgba(5,5,5,0.98);
+  --glass: #0d0d0d;
+  --glass2: rgba(255,0,85,0.05);
+  --accent: #ff0055;
+  --accent2: #ff6b9d;
+  --accent3: #9b00ff;
+  --border: rgba(255,0,85,0.3);
+  --border2: rgba(255,0,85,0.08);
+  --text-muted: #777;
+  --glow: 0 0 25px rgba(255,0,85,0.7);
+  --glow2: 0 0 50px rgba(255,0,85,0.2);
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; outline: none; }
-        
-        body { 
-            background-color: var(--bg-color);
-            background-image: var(--bg-image);
-            background-size: cover; background-position: center; background-attachment: fixed;
-            color: var(--text-white); min-height: 100vh; overflow-x: hidden;
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
+body.light-theme {
+  --bg-image: none;
+  --bg-color: #eef2f8;
+  --header-bg: rgba(255,255,255,0.97);
+  --glass: #ffffff;
+  --glass2: rgba(0,86,179,0.04);
+  --accent: #0057c8;
+  --accent2: #4a90e2;
+  --accent3: #7b2fff;
+  --border: rgba(0,87,200,0.2);
+  --border2: rgba(0,87,200,0.06);
+  --text-white: #0a1628;
+  --text-muted: #5a6e8a;
+  --glow: 0 8px 25px rgba(0,87,200,0.25);
+  --glow2: 0 4px 15px rgba(0,87,200,0.1);
+}
 
-        /* Overlay for default background to ensure text readability */
-        body::before {
-            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6); z-index: -1; transition: 0.5s;
-        }
-        body.dark-theme::before, body.light-theme::before { display: none; }
+/* ===== RESET & BASE ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;outline:none;}
+html{scroll-behavior:smooth;}
+body{
+  background-color:var(--bg-color);
+  background-image:var(--bg-image);
+  background-size:cover;background-position:center;background-attachment:fixed;
+  color:var(--text-white);min-height:100vh;overflow-x:hidden;
+  transition:background-color 0.6s,color 0.6s;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background:linear-gradient(135deg,rgba(0,0,30,0.75) 0%,rgba(0,10,40,0.65) 100%);
+  z-index:-1;transition:0.6s;
+}
+body.dark-theme::before,body.light-theme::before{display:none;}
 
-        /* --- INCREDIBLE ANIMATIONS --- */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes letterFloat { 0%, 100% { transform: translateY(0); text-shadow: 0 0 5px var(--accent); } 50% { transform: translateY(-8px); text-shadow: var(--glow); color: #fff; } }
+/* ===== PARTICLE CANVAS ===== */
+#particleCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.4;}
 
-        /* --- HEADER & ADVANCED LOGO --- */
-        .header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 40px; background: var(--header-bg); backdrop-filter: blur(20px);
-            position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid var(--accent);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-        }
-        .nav-left { display: flex; align-items: center; gap: 20px; }
-        .menu-btn { font-size: 2rem; color: var(--accent); cursor: pointer; transition: 0.3s; }
-        .menu-btn:hover { transform: rotate(90deg) scale(1.1); text-shadow: var(--glow); }
-        
-        /* Floating Letter Logo */
-        .logo-text { font-family: 'Orbitron'; font-weight: 900; font-size: 1.8rem; letter-spacing: 2px; color: var(--accent); display: flex; }
-        .logo-text span { display: inline-block; animation: letterFloat 2s infinite ease-in-out; }
+/* ===== KEYFRAMES ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes letterFloat{0%,100%{transform:translateY(0) scale(1);text-shadow:0 0 8px var(--accent);}50%{transform:translateY(-9px) scale(1.05);text-shadow:var(--glow);color:#fff;}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,242,254,0.5)}50%{box-shadow:0 0 0 15px rgba(0,242,254,0)}}
+@keyframes scanLine{0%{transform:translateY(-100%)}100%{transform:translateY(400%)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes typeDot{0%,100%{transform:translateY(0);opacity:0.4}50%{transform:translateY(-6px);opacity:1}}
+@keyframes glowPulse{0%,100%{opacity:0.6}50%{opacity:1}}
+@keyframes rotateGlow{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
+@keyframes borderDance{0%,100%{border-color:var(--accent)}50%{border-color:var(--accent3)}}
+@keyframes countUp{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}
+@keyframes searchPulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+@keyframes pageSlideIn{from{opacity:0;transform:translateY(25px) scale(0.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
-        /* --- SEARCH BAR WITH WORKING SUGGESTIONS --- */
-        .search-container { position: relative; width: 450px; }
-        .search-bar {
-            width: 100%; background: var(--glass); border: 1px solid var(--border);
-            padding: 12px 20px 12px 45px; border-radius: 25px; color: var(--text-white);
-            font-size: 1rem; transition: var(--transition);
-        }
-        .search-bar:focus { border-color: var(--accent); box-shadow: var(--glow); }
-        .search-icon { position: absolute; left: 18px; top: 14px; color: var(--text-muted); font-size: 1.1rem; }
-        
-        .suggestion-box {
-            position: absolute; top: 55px; left: 0; width: 100%; background: var(--header-bg);
-            border: 1px solid var(--border); border-radius: 15px; display: none;
-            flex-direction: column; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 2000;
-        }
-        .suggestion-item { padding: 12px 20px; cursor: pointer; color: var(--text-white); border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
-        .suggestion-item:hover { background: var(--accent); color: #000; font-weight: bold; padding-left: 30px; }
+/* ===== HEADER ===== */
+.header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 40px;background:var(--header-bg);backdrop-filter:blur(30px) saturate(180%);
+  position:fixed;width:100%;top:0;z-index:1000;
+  border-bottom:1px solid var(--border);
+  box-shadow:0 4px 30px rgba(0,0,0,0.4);
+  transition:var(--tr);
+}
+.header::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),var(--accent3),var(--accent),transparent);
+  animation:shimmer 3s linear infinite;background-size:200% 100%;
+}
+.nav-left{display:flex;align-items:center;gap:18px;}
+.menu-btn{
+  font-size:1.6rem;color:var(--accent);cursor:pointer;
+  transition:var(--tr);width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  border-radius:10px;border:1px solid var(--border2);
+}
+.menu-btn:hover{transform:rotate(90deg) scale(1.15);text-shadow:var(--glow);background:var(--glass2);}
 
-        /* --- PROFILE DROPDOWN (5 OPTIONS) --- */
-        .profile-section { display: flex; align-items: center; gap: 15px; cursor: pointer; position: relative; }
-        .avatar-box { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--accent); background: #000; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px var(--border); transition: 0.3s; }
-        .profile-section:hover .avatar-box { transform: scale(1.1); box-shadow: var(--glow); }
-        
-        .profile-dropdown {
-            position: absolute; top: 70px; right: 0; background: var(--header-bg); backdrop-filter: blur(15px);
-            border: 1px solid var(--border); border-radius: 15px; width: 250px; display: none;
-            flex-direction: column; box-shadow: 0 15px 40px rgba(0,0,0,0.9); z-index: 3000; overflow: hidden;
-        }
-        .profile-dropdown.show { display: flex; animation: fadeIn 0.3s ease; }
-        .drop-btn { background: transparent; color: var(--text-white); border: none; padding: 15px 20px; text-align: left; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; display: flex; align-items: center; gap: 12px; transition: 0.3s; font-family: 'Poppins'; }
-        .drop-btn:hover { background: var(--accent); color: #000; font-weight: bold; padding-left: 25px; }
-        .drop-btn-red { color: #ff3333; font-weight: 600; border-bottom: none; }
-        .drop-btn-red:hover { background: #ff3333; color: #fff; }
+/* LOGO */
+.logo-text{font-family:'Orbitron';font-weight:900;font-size:1.65rem;letter-spacing:3px;color:var(--accent);display:flex;align-items:center;gap:2px;}
+.logo-text span{display:inline-block;animation:letterFloat 2.5s infinite ease-in-out;}
+.logo-badge{
+  font-size:0.55rem;font-family:'Orbitron';background:linear-gradient(135deg,var(--accent),var(--accent3));
+  color:#000;padding:2px 7px;border-radius:20px;letter-spacing:1px;margin-left:8px;font-weight:700;
+  align-self:flex-end;margin-bottom:4px;
+}
 
-        /* --- SIDEBAR --- */
-        .sidebar {
-            position: fixed; left: -320px; top: 0; width: 320px; height: 100%;
-            background: var(--header-bg); z-index: 2500; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            padding-top: 100px; border-right: 2px solid var(--accent); backdrop-filter: blur(20px);
-        }
-        .sidebar.active { left: 0; }
-        .fac-header { text-align: center; font-family: 'Orbitron'; font-size: 1.5rem; color: var(--accent); letter-spacing: 2px; margin-bottom: 20px; font-weight: bold; text-shadow: var(--glow); }
-        .sidebar a { display: flex; align-items: center; gap: 15px; padding: 18px 30px; color: var(--text-white); text-decoration: none; font-size: 1.05rem; transition: 0.4s; border-bottom: 1px solid rgba(255,255,255,0.02); }
-        .sidebar a:hover { background: var(--glass); color: var(--accent); padding-left: 45px; border-left: 5px solid var(--accent); }
+/* ===== SEARCH BAR ===== */
+.search-container{position:relative;width:400px;}
+.search-wrap{position:relative;}
+.search-bar{
+  width:100%;background:var(--glass);border:1px solid var(--border);
+  padding:12px 20px 12px 46px;border-radius:30px;color:var(--text-white);
+  font-size:0.95rem;transition:var(--tr);backdrop-filter:blur(10px);
+}
+.search-bar::placeholder{color:var(--text-muted);}
+.search-bar:focus{border-color:var(--accent);box-shadow:var(--glow2);}
+.search-icon{position:absolute;left:17px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:1rem;transition:0.3s;pointer-events:none;}
+.search-bar:focus~.search-icon{color:var(--accent);}
 
-        /* --- PAGES & MAIN CONTAINER --- */
-        .container { padding: 140px 6% 100px; }
-        .page { display: none; animation: fadeIn 0.8s ease; }
-        .active-page { display: block; }
+/* Searching Animation Overlay */
+.search-status{
+  position:absolute;top:0;left:0;width:100%;height:100%;border-radius:30px;
+  background:var(--header-bg);border:1px solid var(--accent);
+  display:none;align-items:center;justify-content:center;gap:10px;
+  color:var(--accent);font-family:'Orbitron';font-size:0.85rem;letter-spacing:2px;
+  animation:searchPulse 0.9s ease infinite;z-index:5;
+}
+.search-status .s-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:typeDot 0.9s infinite;}
+.search-status .s-dot:nth-child(2){animation-delay:0.2s;}
+.search-status .s-dot:nth-child(3){animation-delay:0.4s;}
 
-        /* --- HOME PAGE CARDS --- */
-        .hero-title { font-family: 'Orbitron'; font-size: 4.5rem; text-align: center; margin-bottom: 60px; letter-spacing: 4px; color: var(--text-white); text-shadow: var(--glow); }
-        .alliance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; }
-        .card {
-            background: var(--glass); border: 1px solid var(--border); border-radius: 25px;
-            padding: 40px 25px; text-align: center; transition: var(--transition); cursor: pointer;
-            backdrop-filter: blur(10px);
-        }
-        .card:hover { transform: translateY(-15px); border-color: var(--accent); box-shadow: var(--glow); }
-        .card i { font-size: 3.5rem; color: var(--accent); margin-bottom: 20px; transition: 0.3s; }
-        .card:hover i { transform: scale(1.2); }
-        .card h3 { font-family: 'Orbitron'; font-size: 1.4rem; margin-bottom: 15px; color: var(--text-white); }
-        .card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+.suggestion-box{
+  position:absolute;top:calc(100% + 10px);left:0;width:100%;
+  background:var(--header-bg);backdrop-filter:blur(30px);
+  border:1px solid var(--border);border-radius:18px;
+  display:none;flex-direction:column;overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,0.7);z-index:2000;
+  transform-origin:top;
+}
+.suggestion-item{
+  padding:13px 22px;cursor:pointer;color:var(--text-white);
+  border-bottom:1px solid var(--border2);transition:0.3s;
+  display:flex;align-items:center;gap:12px;font-size:0.93rem;
+}
+.suggestion-item:last-child{border-bottom:none;}
+.suggestion-item i{color:var(--accent);font-size:0.85rem;width:16px;text-align:center;}
+.suggestion-item:hover{background:var(--glass2);color:var(--accent);padding-left:28px;}
+.sug-not-found{padding:15px 22px;color:var(--text-muted);font-size:0.9rem;text-align:center;}
 
-        /* --- AVISMA AI CORE (ADVANCED) --- */
-        .ai-wrap { max-width: 900px; margin: 0 auto; background: var(--glass); border: 2px solid var(--accent); border-radius: 25px; height: 650px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-        .chat-area { flex: 1; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; }
-        .bubble { padding: 18px 25px; border-radius: 20px; max-width: 80%; font-size: 1.05rem; line-height: 1.5; font-family: 'Poppins'; }
-        .ai { align-self: flex-start; background: var(--header-bg); border-left: 5px solid var(--accent); color: var(--text-white); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .user { align-self: flex-end; background: var(--accent); color: #000; font-weight: 600; box-shadow: 0 5px 15px rgba(0,242,254,0.3); }
-        .chat-input-bar { padding: 25px; background: rgba(0,0,0,0.7); display: flex; gap: 15px; border-top: 1px solid var(--border); }
-        .ai-input { flex: 1; background: var(--header-bg); border: 1px solid var(--border); padding: 15px 25px; border-radius: 30px; color: var(--text-white); font-size: 1.05rem; }
-        .ai-input:focus { border-color: var(--accent); box-shadow: var(--glow); }
-        .btn-circle { background: var(--accent); color: #000; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; transition: 0.3s; }
-        .btn-circle:hover { transform: scale(1.1); box-shadow: var(--glow); }
+/* ===== PROFILE SECTION ===== */
+.profile-section{display:flex;align-items:center;gap:14px;cursor:pointer;position:relative;}
+.profile-name-top{font-size:0.9rem;color:var(--text-muted);font-weight:500;transition:0.3s;}
+.profile-section:hover .profile-name-top{color:var(--accent);}
+.avatar-box{
+  width:46px;height:46px;border-radius:50%;border:2px solid var(--accent);
+  background:var(--glass);overflow:hidden;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 12px var(--border);transition:var(--tr);
+}
+.profile-section:hover .avatar-box{transform:scale(1.1);box-shadow:var(--glow);}
+.avatar-box img{width:100%;height:100%;object-fit:cover;}
+.profile-dropdown{
+  position:absolute;top:calc(100% + 14px);right:0;
+  background:var(--header-bg);backdrop-filter:blur(30px);
+  border:1px solid var(--border);border-radius:18px;width:240px;
+  display:none;flex-direction:column;box-shadow:0 20px 50px rgba(0,0,0,0.85);
+  z-index:3000;overflow:hidden;
+  transform-origin:top right;
+}
+.profile-dropdown.show{display:flex;animation:fadeUp 0.3s ease;}
+.drop-btn{
+  background:transparent;color:var(--text-white);border:none;
+  padding:14px 20px;text-align:left;cursor:pointer;
+  border-bottom:1px solid var(--border2);font-size:0.92rem;
+  display:flex;align-items:center;gap:12px;transition:0.3s;
+  font-family:'Poppins';
+}
+.drop-btn:last-child{border-bottom:none;}
+.drop-btn:hover{background:var(--glass2);color:var(--accent);padding-left:26px;}
+.drop-btn-red{color:#ff4444;}
+.drop-btn-red:hover{background:rgba(255,68,68,0.1)!important;color:#ff4444!important;}
 
-        /* Typing indicator */
-        .typing { display: flex; gap: 5px; align-items: center; }
-        .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: typeDot 1.5s infinite; }
-        .dot:nth-child(2) { animation-delay: 0.2s; } .dot:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes typeDot { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-5px); opacity: 1; } }
+/* ===== SIDEBAR ===== */
+.sidebar{
+  position:fixed;left:calc(-1 * var(--sidebar-w));top:0;width:var(--sidebar-w);height:100%;
+  background:var(--header-bg);backdrop-filter:blur(30px) saturate(180%);
+  z-index:2500;transition:left 0.55s cubic-bezier(0.4,0,0.2,1);
+  padding-top:90px;border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+}
+.sidebar.active{left:0;box-shadow:10px 0 50px rgba(0,0,0,0.7);}
+.sidebar-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:2400;
+  display:none;backdrop-filter:blur(3px);
+}
+.sidebar-overlay.active{display:block;}
+.sidebar-header{
+  padding:20px 25px 10px;
+  font-family:'Orbitron';font-size:0.7rem;color:var(--text-muted);
+  letter-spacing:3px;font-weight:700;
+}
+.sidebar-divider{height:1px;background:var(--border2);margin:5px 20px;}
+.sidebar a{
+  display:flex;align-items:center;gap:15px;padding:16px 25px;
+  color:var(--text-muted);text-decoration:none;font-size:0.95rem;
+  transition:var(--tr);position:relative;overflow:hidden;
+}
+.sidebar a::before{
+  content:'';position:absolute;left:0;top:0;height:100%;width:0;
+  background:var(--glass2);transition:width 0.35s ease;
+}
+.sidebar a:hover::before{width:100%;}
+.sidebar a:hover{color:var(--accent);padding-left:32px;}
+.sidebar a:hover i{transform:scale(1.2);color:var(--accent);}
+.sidebar a i{color:var(--text-muted);transition:0.35s;width:20px;text-align:center;position:relative;z-index:1;}
+.sidebar a span{position:relative;z-index:1;}
+.sidebar-footer{
+  margin-top:auto;padding:20px 25px;border-top:1px solid var(--border2);
+  font-size:0.75rem;color:var(--text-muted);text-align:center;
+  font-family:'Orbitron';letter-spacing:1px;
+}
 
-        /* --- RATINGS PAGE (NOT RANKINGS) --- */
-        .ratings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .rating-card { background: var(--glass); border: 1px solid var(--border); padding: 35px; border-radius: 20px; transition: 0.3s; }
-        .rating-card:hover { transform: translateY(-10px); box-shadow: var(--glow); border-color: var(--accent); }
-        .stars { color: #ffc107; font-size: 1.5rem; margin-bottom: 15px; }
+/* ===== PAGES ===== */
+.container{padding:120px 5% 80px;position:relative;z-index:1;}
+.page{display:none;}
+.page.active-page{display:block;animation:pageSlideIn 0.6s ease;}
 
-        /* --- AVATAR STUDIO PRO --- */
-        .studio-layout { display: flex; gap: 30px; background: var(--glass); padding: 30px; border-radius: 25px; border: 1px solid var(--border); }
-        .tools-panel { width: 250px; display: flex; flex-direction: column; gap: 15px; }
-        #canvas { background: #fff; border-radius: 15px; cursor: crosshair; flex: 1; border: 2px solid #ccc; }
-        .tool-btn { background: var(--header-bg); color: var(--text-white); border: 1px solid var(--border); padding: 15px; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .tool-btn.active, .tool-btn:hover { background: var(--accent); color: #000; }
+/* ===== PAGE TITLES ===== */
+.page-title{
+  font-family:'Orbitron';font-size:clamp(1.8rem,4vw,3rem);
+  text-align:center;margin-bottom:50px;letter-spacing:3px;
+  color:var(--text-white);
+  background:linear-gradient(135deg,var(--text-white),var(--accent),var(--accent3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  background-size:200% 200%;animation:gradientShift 4s ease infinite;
+}
 
-        /* --- MODALS (AI AVATAR & NEW ACCOUNT) --- */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 5000; justify-content: center; align-items: center; backdrop-filter: blur(10px); }
-        .modal-box { background: var(--header-bg); border: 2px solid var(--accent); padding: 40px; border-radius: 25px; text-align: center; max-width: 500px; width: 90%; box-shadow: var(--glow); animation: fadeIn 0.4s ease; }
-        .modal-btn { width: 100%; background: var(--accent); color: #000; padding: 15px; font-weight: bold; font-family: 'Orbitron'; border: none; border-radius: 10px; font-size: 1.1rem; cursor: pointer; margin-top: 15px; transition: 0.3s; }
-        .modal-btn:hover { box-shadow: var(--glow); transform: scale(1.02); }
+/* ===== HOME PAGE ===== */
+.hero-section{text-align:center;margin-bottom:70px;animation:fadeUp 0.8s ease;}
+.hero-title{
+  font-family:'Orbitron';font-size:clamp(2.5rem,6vw,5.5rem);
+  font-weight:900;letter-spacing:6px;margin-bottom:20px;
+  background:linear-gradient(135deg,#ffffff 0%,var(--accent) 50%,var(--accent3) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  background-size:200% 200%;animation:gradientShift 5s ease infinite;
+  line-height:1.1;
+}
+.hero-sub{
+  font-size:1.05rem;color:var(--text-muted);letter-spacing:2px;
+  font-family:'Rajdhani';font-weight:600;margin-bottom:30px;
+}
+.hero-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--accent),var(--accent3));
+  color:#000;padding:14px 35px;border-radius:30px;
+  font-family:'Orbitron';font-size:0.85rem;font-weight:700;letter-spacing:2px;
+  cursor:pointer;border:none;transition:var(--tr);text-decoration:none;
+  box-shadow:var(--glow2);
+}
+.hero-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:var(--glow);}
 
-    </style>
+/* ALLIANCE GRID */
+.alliance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;}
+.alliance-section-title{
+  font-family:'Orbitron';font-size:0.75rem;letter-spacing:4px;
+  color:var(--text-muted);margin-bottom:30px;text-align:center;
+}
+.card{
+  background:var(--glass);border:1px solid var(--border2);border-radius:22px;
+  padding:38px 28px;text-align:center;transition:var(--tr);cursor:pointer;
+  backdrop-filter:blur(15px);position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;inset:0;border-radius:22px;
+  background:linear-gradient(135deg,var(--glass2),transparent);
+  opacity:0;transition:opacity 0.4s;
+}
+.card:hover::before{opacity:1;}
+.card:hover{transform:translateY(-12px) scale(1.02);border-color:var(--accent);box-shadow:var(--glow),0 20px 60px rgba(0,0,0,0.4);}
+.card-icon{
+  width:72px;height:72px;background:var(--glass2);border:1px solid var(--border);
+  border-radius:18px;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;transition:var(--tr);
+}
+.card:hover .card-icon{transform:rotateY(15deg) scale(1.1);border-color:var(--accent);box-shadow:var(--glow);}
+.card-icon i{font-size:2rem;color:var(--accent);}
+.card h3{font-family:'Orbitron';font-size:1.05rem;margin-bottom:12px;color:var(--text-white);letter-spacing:1px;}
+.card p{font-size:0.88rem;color:var(--text-muted);line-height:1.7;}
+.card-badge{
+  display:inline-block;font-size:0.7rem;padding:4px 12px;border-radius:20px;
+  border:1px solid var(--border);color:var(--text-muted);margin-top:14px;
+  font-family:'Orbitron';letter-spacing:1px;
+}
+.card-link{
+  display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+  color:var(--accent);font-size:0.85rem;font-weight:600;text-decoration:none;
+  transition:0.3s;
+}
+.card-link:hover{gap:14px;text-shadow:0 0 10px var(--accent);}
+.card-coming{color:var(--text-muted);font-size:0.78rem;margin-top:14px;font-style:italic;}
+
+/* ===== AI PAGE ===== */
+.ai-wrap{
+  max-width:860px;margin:0 auto;background:var(--glass);
+  border:1px solid var(--border);border-radius:24px;
+  height:min(640px,75vh);display:flex;flex-direction:column;
+  overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  backdrop-filter:blur(20px);
+}
+.ai-header-bar{
+  padding:18px 25px;border-bottom:1px solid var(--border2);
+  display:flex;align-items:center;gap:12px;
+  background:rgba(0,0,0,0.2);
+}
+.ai-status-dot{width:8px;height:8px;background:#00ff88;border-radius:50%;animation:glowPulse 1.5s infinite;}
+.ai-header-title{font-family:'Orbitron';font-size:0.8rem;color:var(--accent);letter-spacing:2px;}
+.ai-header-sub{font-size:0.75rem;color:var(--text-muted);margin-left:auto;}
+.chat-area{flex:1;padding:25px;overflow-y:auto;display:flex;flex-direction:column;gap:16px;scroll-behavior:smooth;}
+.chat-area::-webkit-scrollbar{width:4px;}
+.chat-area::-webkit-scrollbar-track{background:transparent;}
+.chat-area::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+.bubble{
+  padding:16px 22px;border-radius:18px;max-width:78%;font-size:0.97rem;line-height:1.65;
+  animation:fadeUp 0.3s ease;
+}
+.ai-bubble{
+  align-self:flex-start;background:var(--header-bg);
+  border-left:3px solid var(--accent);color:var(--text-white);
+  border-radius:4px 18px 18px 18px;
+}
+.user-bubble{
+  align-self:flex-end;
+  background:linear-gradient(135deg,var(--accent),var(--accent3));
+  color:#000;font-weight:600;border-radius:18px 4px 18px 18px;
+  box-shadow:0 5px 20px rgba(0,242,254,0.3);
+}
+.chat-input-bar{
+  padding:20px 22px;background:rgba(0,0,0,0.35);
+  display:flex;gap:12px;border-top:1px solid var(--border2);align-items:center;
+}
+.ai-input{
+  flex:1;background:var(--header-bg);border:1px solid var(--border);
+  padding:14px 22px;border-radius:30px;color:var(--text-white);
+  font-size:0.95rem;transition:var(--tr);
+}
+.ai-input::placeholder{color:var(--text-muted);}
+.ai-input:focus{border-color:var(--accent);box-shadow:var(--glow2);}
+.btn-send{
+  background:linear-gradient(135deg,var(--accent),var(--accent3));
+  color:#000;border:none;width:50px;height:50px;border-radius:50%;
+  cursor:pointer;font-size:1.1rem;transition:var(--tr);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.btn-send:hover{transform:scale(1.12) rotate(-5deg);box-shadow:var(--glow);}
+.typing-ind{display:flex;gap:5px;align-items:center;padding:2px 0;}
+.dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:typeDot 1.5s infinite;}
+.dot:nth-child(2){animation-delay:0.2s;}
+.dot:nth-child(3){animation-delay:0.4s;}
+
+/* ===== RATINGS ===== */
+.ratings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;}
+.rating-card{
+  background:var(--glass);border:1px solid var(--border2);
+  padding:35px 30px;border-radius:22px;transition:var(--tr);
+  backdrop-filter:blur(15px);position:relative;overflow:hidden;
+}
+.rating-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  opacity:0;transition:0.4s;
+}
+.rating-card:hover{transform:translateY(-10px);box-shadow:var(--glow2);border-color:var(--accent);}
+.rating-card:hover::after{opacity:1;}
+.stars{color:#ffc107;font-size:1.3rem;margin-bottom:18px;letter-spacing:2px;}
+.rating-text{font-size:0.97rem;color:var(--text-muted);line-height:1.75;margin-bottom:20px;font-style:italic;}
+.rating-author{color:var(--accent);font-family:'Orbitron';font-size:0.8rem;letter-spacing:1px;}
+
+/* ===== AVATAR STUDIO ===== */
+.studio-layout{display:flex;gap:25px;flex-wrap:wrap;}
+.tools-panel{
+  width:220px;display:flex;flex-direction:column;gap:12px;flex-shrink:0;
+}
+.tools-section-label{
+  font-size:0.7rem;color:var(--text-muted);letter-spacing:2px;
+  font-family:'Orbitron';padding:0 5px;
+}
+.tool-btn{
+  background:var(--glass);color:var(--text-white);border:1px solid var(--border2);
+  padding:13px 18px;border-radius:12px;cursor:pointer;font-weight:600;
+  font-size:0.88rem;transition:var(--tr);display:flex;align-items:center;gap:10px;
+  backdrop-filter:blur(10px);
+}
+.tool-btn.active,.tool-btn:hover{background:var(--glass2);border-color:var(--accent);color:var(--accent);box-shadow:0 0 15px rgba(0,242,254,0.15);}
+.tool-btn.danger{border-color:rgba(255,60,60,0.3);color:#ff6060;}
+.tool-btn.danger:hover{background:rgba(255,60,60,0.1);border-color:#ff6060;color:#ff6060;}
+.tool-btn.success{border-color:rgba(0,255,136,0.3);color:#00ff88;}
+.tool-btn.success:hover{background:rgba(0,255,136,0.08);border-color:#00ff88;color:#00ff88;}
+.color-swatch{
+  width:100%;height:44px;border-radius:10px;cursor:pointer;
+  border:2px solid var(--border);transition:0.3s;
+}
+.color-swatch:hover{border-color:var(--accent);transform:scale(1.02);}
+.size-slider{width:100%;accent-color:var(--accent);}
+.canvas-wrap{
+  flex:1;min-width:300px;background:#111;border-radius:18px;
+  border:1px solid var(--border2);overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 40px rgba(0,0,0,0.4);
+}
+#paintC{display:block;max-width:100%;height:auto;cursor:crosshair;}
+
+/* ===== SETTINGS ===== */
+.settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;max-width:900px;margin:0 auto;}
+.settings-card{
+  background:var(--glass);border:1px solid var(--border2);
+  border-radius:22px;padding:30px;backdrop-filter:blur(15px);
+  transition:var(--tr);
+}
+.settings-card:hover{border-color:var(--border);box-shadow:var(--glow2);}
+.settings-card h3{
+  font-family:'Orbitron';font-size:0.85rem;color:var(--accent);
+  letter-spacing:2px;margin-bottom:20px;
+}
+.theme-btns{display:flex;flex-direction:column;gap:10px;}
+.theme-btn{
+  background:var(--glass2);color:var(--text-white);border:1px solid var(--border2);
+  padding:14px 20px;border-radius:12px;cursor:pointer;font-size:0.9rem;
+  transition:var(--tr);display:flex;align-items:center;gap:12px;
+}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--glass2);transform:translateX(6px);}
+.settings-info-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 0;border-bottom:1px solid var(--border2);
+  font-size:0.9rem;
+}
+.settings-info-row:last-child{border-bottom:none;}
+.settings-label{color:var(--text-muted);}
+.settings-value{color:var(--accent);font-weight:600;font-family:'Orbitron';font-size:0.8rem;}
+
+/* ===== ALLIANCES PAGE ===== */
+.alliances-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;max-width:1100px;margin:0 auto;}
+.alliance-card{
+  background:var(--glass);border:1px solid var(--border2);border-radius:24px;
+  padding:40px 30px;text-align:center;transition:var(--tr);
+  backdrop-filter:blur(15px);position:relative;overflow:hidden;cursor:pointer;
+}
+.alliance-card::before{
+  content:'';position:absolute;inset:0;border-radius:24px;
+  background:radial-gradient(circle at 50% 0%,var(--glass2),transparent 70%);
+  opacity:0;transition:0.4s;
+}
+.alliance-card:hover::before{opacity:1;}
+.alliance-card:hover{transform:translateY(-14px);border-color:var(--accent);box-shadow:var(--glow),0 25px 60px rgba(0,0,0,0.4);}
+.alliance-logo-wrap{
+  width:90px;height:90px;margin:0 auto 22px;
+  border-radius:22px;border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  background:var(--glass2);transition:var(--tr);overflow:hidden;
+}
+.alliance-card:hover .alliance-logo-wrap{border-color:var(--accent);box-shadow:var(--glow);transform:scale(1.08);}
+.alliance-logo-wrap i{font-size:2.8rem;color:var(--accent);}
+.alliance-name{font-family:'Orbitron';font-size:1.1rem;color:var(--text-white);margin-bottom:10px;letter-spacing:1px;}
+.alliance-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.7;margin-bottom:18px;}
+.alliance-link-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--glass2);color:var(--accent);
+  padding:11px 24px;border-radius:25px;border:1px solid var(--border);
+  font-size:0.84rem;font-weight:600;text-decoration:none;
+  transition:var(--tr);font-family:'Rajdhani';letter-spacing:1px;
+}
+.alliance-link-btn:hover{background:var(--accent);color:#000;box-shadow:var(--glow);}
+.alliance-soon{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--text-muted);padding:10px 20px;border-radius:25px;
+  border:1px dashed var(--border2);font-size:0.82rem;font-style:italic;
+}
+
+/* ===== UPDATES PAGE ===== */
+.updates-timeline{max-width:750px;margin:0 auto;position:relative;}
+.updates-timeline::before{
+  content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--accent),var(--accent3),transparent);
+  opacity:0.4;
+}
+.update-item{
+  display:flex;gap:25px;margin-bottom:35px;
+  animation:slideRight 0.5s ease both;
+}
+.update-dot{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  background:var(--glass);border:2px solid var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);font-size:1rem;position:relative;z-index:1;
+  box-shadow:var(--glow2);transition:var(--tr);
+}
+.update-item:hover .update-dot{background:var(--accent);color:#000;box-shadow:var(--glow);}
+.update-body{
+  background:var(--glass);border:1px solid var(--border2);border-radius:18px;
+  padding:22px 25px;flex:1;transition:var(--tr);backdrop-filter:blur(10px);
+}
+.update-item:hover .update-body{border-color:var(--border);box-shadow:var(--glow2);}
+.update-version{
+  font-family:'Orbitron';font-size:0.72rem;color:var(--accent);
+  letter-spacing:2px;margin-bottom:6px;
+}
+.update-title{font-size:1rem;font-weight:600;color:var(--text-white);margin-bottom:8px;}
+.update-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.65;}
+.update-date{font-size:0.75rem;color:var(--text-muted);margin-top:10px;font-style:italic;}
+.update-tag{
+  display:inline-block;font-size:0.7rem;padding:3px 10px;border-radius:20px;
+  background:var(--glass2);border:1px solid var(--border);color:var(--accent);
+  margin-top:10px;font-family:'Orbitron';letter-spacing:1px;
+}
+
+/* ===== MODALS ===== */
+.modal{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,0.82);z-index:5000;
+  justify-content:center;align-items:center;
+  backdrop-filter:blur(12px);
+}
+.modal.open{display:flex;animation:fadeIn 0.3s ease;}
+.modal-box{
+  background:var(--header-bg);border:1px solid var(--border);
+  padding:40px;border-radius:24px;text-align:center;
+  max-width:480px;width:92%;box-shadow:0 30px 80px rgba(0,0,0,0.8);
+  animation:fadeUp 0.4s ease;
+}
+.modal-title{font-family:'Orbitron';color:var(--accent);margin-bottom:12px;font-size:1.2rem;letter-spacing:2px;}
+.modal-desc{color:var(--text-muted);font-size:0.9rem;margin-bottom:25px;line-height:1.65;}
+.modal-input{
+  width:100%;background:rgba(0,0,0,0.4);border:1px solid var(--border);
+  padding:14px 20px;border-radius:12px;color:var(--text-white);
+  font-size:0.95rem;margin-bottom:18px;transition:var(--tr);
+}
+.modal-input:focus{border-color:var(--accent);box-shadow:var(--glow2);}
+.modal-btn{
+  width:100%;background:linear-gradient(135deg,var(--accent),var(--accent3));
+  color:#000;padding:15px;font-weight:700;font-family:'Orbitron';
+  border:none;border-radius:12px;font-size:0.95rem;cursor:pointer;
+  transition:var(--tr);letter-spacing:1px;
+}
+.modal-btn:hover{box-shadow:var(--glow);transform:translateY(-2px);}
+.modal-close{
+  margin-top:18px;background:none;border:none;
+  color:var(--text-muted);cursor:pointer;font-size:0.88rem;
+  transition:0.3s;display:inline-block;
+}
+.modal-close:hover{color:var(--text-white);}
+
+/* ===== LOGIN PAGE ===== */
+#loginPage{
+  position:fixed;inset:0;z-index:9000;
+  background:var(--bg-color);background-image:var(--bg-image);
+  background-size:cover;background-position:center;
+  display:none;justify-content:center;align-items:center;
+}
+#loginPage.open{display:flex;}
+#loginPage::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,0,30,0.85),rgba(0,10,40,0.8));
+}
+.login-box{
+  position:relative;z-index:1;
+  background:var(--header-bg);backdrop-filter:blur(30px);
+  border:1px solid var(--border);border-radius:28px;
+  padding:50px 45px;width:420px;max-width:95%;
+  box-shadow:0 30px 80px rgba(0,0,0,0.9);
+  animation:fadeUp 0.5s ease;text-align:center;
+}
+.login-logo{
+  font-family:'Orbitron';font-size:2rem;font-weight:900;
+  color:var(--accent);margin-bottom:8px;letter-spacing:3px;
+}
+.login-tagline{color:var(--text-muted);font-size:0.85rem;margin-bottom:35px;letter-spacing:1px;}
+.login-input{
+  width:100%;background:rgba(0,0,0,0.4);border:1px solid var(--border);
+  padding:15px 20px;border-radius:14px;color:var(--text-white);
+  font-size:0.95rem;margin-bottom:16px;transition:var(--tr);
+}
+.login-input:focus{border-color:var(--accent);box-shadow:var(--glow2);}
+.login-btn{
+  width:100%;background:linear-gradient(135deg,var(--accent),var(--accent3));
+  color:#000;padding:15px;font-weight:700;font-family:'Orbitron';
+  border:none;border-radius:14px;font-size:1rem;cursor:pointer;
+  transition:var(--tr);letter-spacing:1px;margin-top:6px;
+}
+.login-btn:hover{box-shadow:var(--glow);transform:translateY(-2px);}
+.login-or{color:var(--text-muted);font-size:0.82rem;margin:18px 0;letter-spacing:1px;}
+
+/* ===== TOAST NOTIFICATION ===== */
+.toast{
+  position:fixed;bottom:30px;right:30px;z-index:9999;
+  background:var(--header-bg);border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;
+  padding:16px 24px;max-width:320px;
+  display:none;flex-direction:column;gap:5px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.7);animation:fadeUp 0.4s ease;
+}
+.toast.show{display:flex;}
+.toast-title{color:var(--accent);font-family:'Orbitron';font-size:0.78rem;letter-spacing:1px;}
+.toast-msg{color:var(--text-white);font-size:0.9rem;}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:var(--accent);}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .header{padding:12px 18px;}
+  .search-container{width:200px;}
+  .logo-badge{display:none;}
+  .profile-name-top{display:none;}
+  .container{padding:100px 4% 70px;}
+  .hero-title{font-size:2.2rem;letter-spacing:3px;}
+  .studio-layout{flex-direction:column;}
+  .tools-panel{width:100%;flex-direction:row;flex-wrap:wrap;}
+  .tools-panel .tool-btn{flex:1;min-width:120px;}
+  .canvas-wrap{height:300px;min-width:unset;}
+  #paintC{width:100%;height:300px;}
+  .settings-grid{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .search-container{width:150px;}
+  .search-bar{padding:10px 12px 10px 36px;font-size:0.85rem;}
+  .logo-text{font-size:1.2rem;}
+}
+@media(min-width:1920px){
+  .container{padding:130px 8% 100px;}
+  .alliance-grid,.alliances-grid{grid-template-columns:repeat(4,1fr);}
+}
+/* Smart TV */
+@media(min-width:2560px){
+  :root{font-size:20px;}
+  .header{padding:20px 60px;}
+  .sidebar{width:380px;}
+}
+</style>
 </head>
 <body id="appBody">
 
-    <div class="sidebar" id="sidebar">
-        <div class="fac-header">FACILITIES</div>
-        <a href="#" onclick="switchPage('home')"><i class="fas fa-home"></i> Universe Home</a>
-        <a href="#" onclick="switchPage('ai')"><i class="fas fa-brain"></i> Avisma AI 2.0</a>
-        <a href="#" onclick="switchPage('paint')"><i class="fas fa-paint-brush"></i> Avatar Studio</a>
-        <a href="#" onclick="switchPage('ratings')"><i class="fas fa-star"></i> Global Ratings</a>
-        <a href="#" onclick="switchPage('settings')"><i class="fas fa-cog"></i> Ecosystem Settings</a>
+<!-- Particle Background -->
+<canvas id="particleCanvas"></canvas>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">NAVIGATION</div>
+  <div class="sidebar-divider"></div>
+  <a href="#" onclick="switchPage('home');closeSidebar()"><i class="fas fa-home"></i><span>Universe Home</span></a>
+  <a href="#" onclick="switchPage('ai');closeSidebar()"><i class="fas fa-brain"></i><span>Avisma AI 2.0</span></a>
+  <a href="#" onclick="switchPage('alliances');closeSidebar()"><i class="fas fa-link"></i><span>Alliances</span></a>
+  <a href="#" onclick="switchPage('ratings');closeSidebar()"><i class="fas fa-star"></i><span>Global Ratings</span></a>
+  <div class="sidebar-divider"></div>
+  <a href="#" onclick="switchPage('updates');closeSidebar()" id="sidebarUpdates"><i class="fas fa-bell"></i><span>Updates</span></a>
+  <a href="#" id="paintSidebarLink" onclick="handlePaintSidebar();closeSidebar()"><i class="fas fa-paint-brush"></i><span>Avatar Studio</span></a>
+  <a href="#" onclick="switchPage('settings');closeSidebar()"><i class="fas fa-cog"></i><span>Ecosystem Settings</span></a>
+  <div class="sidebar-footer">SS UNIVERSE v3.0</div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="nav-left">
+    <div class="menu-btn" onclick="toggleSidebar()" aria-label="Menu"><i class="fas fa-bars"></i></div>
+    <div class="logo-text" onclick="switchPage('home')" style="cursor:pointer;">
+      <span style="animation-delay:0.05s">S</span><span style="animation-delay:0.15s">S</span>
+      <span>&nbsp;</span>
+      <span style="animation-delay:0.25s">U</span><span style="animation-delay:0.35s">N</span>
+      <span style="animation-delay:0.45s">I</span><span style="animation-delay:0.55s">V</span>
+      <span style="animation-delay:0.65s">E</span><span style="animation-delay:0.75s">R</span>
+      <span style="animation-delay:0.85s">S</span><span style="animation-delay:0.95s">E</span>
     </div>
+    <div class="logo-badge">ULTIMATE</div>
+  </div>
 
-    <header class="header">
-        <div class="nav-left">
-            <i class="fas fa-bars menu-btn" onclick="toggleSidebar()"></i>
-            <div class="logo-text">
-                <span style="animation-delay: 0.1s">S</span><span style="animation-delay: 0.2s">S</span>
-                <span>&nbsp;</span>
-                <span style="animation-delay: 0.3s">U</span><span style="animation-delay: 0.4s">N</span>
-                <span style="animation-delay: 0.5s">I</span><span style="animation-delay: 0.6s">V</span>
-                <span style="animation-delay: 0.7s">E</span><span style="animation-delay: 0.8s">R</span>
-                <span style="animation-delay: 0.9s">S</span><span style="animation-delay: 1.0s">E</span>
-            </div>
-        </div>
-
-        <div class="search-container">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" id="searchInput" class="search-bar" placeholder="Search what you want!" oninput="handleSearch()">
-            <div class="suggestion-box" id="sugBox"></div>
-        </div>
-
-        <div class="profile-section" onclick="toggleDropdown()">
-            <span class="profile-name" id="topName">Commander Shubh</span>
-            <div class="avatar-box" id="topAvatar"><i class="fas fa-user" style="font-size: 1.5rem;"></i></div>
-            
-            <div class="profile-dropdown" id="profileMenu">
-                <button class="drop-btn" onclick="openModal('aiModal')"><i class="fas fa-magic"></i> Create with AI</button>
-                <button class="drop-btn" onclick="switchPage('paint')"><i class="fas fa-palette"></i> Paint Avatar</button>
-                <button class="drop-btn" onclick="document.getElementById('imgUploader').click()"><i class="fas fa-upload"></i> Upload Photo</button>
-                <button class="drop-btn" onclick="switchPage('settings')"><i class="fas fa-adjust"></i> Profile Theme</button>
-                <button class="drop-btn drop-btn-red" onclick="openModal('accountModal')"><i class="fas fa-user-plus"></i> Create a new Account</button>
-                <input type="file" id="imgUploader" accept="image/*" style="display:none;" onchange="uploadImage(event)">
-            </div>
-        </div>
-    </header>
-
-    <main class="container">
-        
-        <div id="home" class="page active-page">
-            <h1 class="hero-title">WELCOME TO SS UNIVERSE</h1>
-            <div class="alliance-grid">
-                <div class="card">
-                    <div class="icon-box"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>Step by Step Learning</h3>
-                    <p>Facilitating ultimate cognitive growth and educational synergy.</p>
-                </div>
-                <div class="card">
-                    <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Clicklify</h3>
-                    <p>The premier computer and technical education mastery center.</p>
-                </div>
-                <div class="card" style="border-color:#ff0000;">
-                    <div class="icon-box" style="border-color:#ff0000;"><i class="fab fa-youtube" style="color:#ff0000;"></i></div>
-                    <h3>SS Member Hub</h3>
-                    <p>Exclusive futuristic portal designed for our YouTube family.</p>
-                </div>
-                <div class="card">
-                    <div class="icon-box"><i class="fas fa-hands-helping"></i></div>
-                    <h3>Savery</h3>
-                    <p>A philanthropic initiative empowering unprivileged communities.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="ai" class="page">
-            <h2 style="text-align:center; font-family:'Orbitron'; margin-bottom:20px; font-size:2.5rem;">AVISMA AI COMMAND</h2>
-            <div class="ai-wrap">
-                <div class="chat-area" id="chatHistory">
-                    <div class="ai bubble">System initialized. I am Avisma. I am fully integrated into the SS Universe mainframe. How may I assist you, Commander?</div>
-                </div>
-                <div class="chat-input-bar">
-                    <input type="text" id="aiField" class="ai-input" placeholder="Initiate advanced command...">
-                    <button class="btn-circle" onclick="processAvisma()"><i class="fas fa-paper-plane"></i></button>
-                </div>
-            </div>
-        </div>
-
-        <div id="ratings" class="page">
-            <h2 style="text-align:center; font-family:'Orbitron'; margin-bottom:40px; font-size:2.5rem;">GLOBAL RATINGS</h2>
-            <div class="ratings-grid">
-                <div class="rating-card">
-                    <div class="stars">★★★★★</div>
-                    <p style="font-size:1.1rem; margin-bottom:15px;">"The Clicklify educational platform is lightyears ahead of standard tech courses. Pure mastery!"</p>
-                    <h4 style="color:var(--accent); font-family:'Orbitron';">- Tech Visionary Magazine</h4>
-                </div>
-                <div class="rating-card">
-                    <div class="stars">★★★★★</div>
-                    <p style="font-size:1.1rem; margin-bottom:15px;">"Step by Step Learning provided the ultimate cognitive growth for my career. Incredible ecosystem."</p>
-                    <h4 style="color:var(--accent); font-family:'Orbitron';">- Senior Software Engineer</h4>
-                </div>
-                <div class="rating-card">
-                    <div class="stars">★★★★★</div>
-                    <p style="font-size:1.1rem; margin-bottom:15px;">"Avisma AI is stunning. The smooth UI and theme engine make this website the best on the internet."</p>
-                    <h4 style="color:var(--accent); font-family:'Orbitron';">- Digital Architecture Review</h4>
-                </div>
-            </div>
-        </div>
-
-        <div id="paint" class="page">
-            <h2 style="text-align:center; font-family:'Orbitron'; margin-bottom:20px; font-size:2.5rem;">AVATAR STUDIO PRO</h2>
-            <div class="studio-layout">
-                <div class="tools-panel">
-                    <input type="color" id="paintColor" value="#00f2fe" style="width:100%; height:50px; border:none; border-radius:10px; cursor:pointer;">
-                    <input type="range" id="paintSize" min="1" max="100" value="8" style="margin:10px 0;">
-                    <button class="tool-btn active" onclick="pTool('pen')" id="bt-pen"><i class="fas fa-pen"></i> PEN</button>
-                    <button class="tool-btn" onclick="pTool('eraser')" id="bt-eraser"><i class="fas fa-eraser"></i> ERASER</button>
-                    <button class="tool-btn" onclick="pUndo()"><i class="fas fa-undo"></i> UNDO MOVE</button>
-                    <button class="tool-btn" onclick="pRedo()"><i class="fas fa-redo"></i> REDO MOVE</button>
-                    <button class="tool-btn" style="background:#ff3333; border:none;" onclick="pClear()"><i class="fas fa-trash"></i> WIPE CANVAS</button>
-                    <button class="tool-btn" style="background:#00f2fe; color:#000; border:none;" onclick="applyCanvasAvatar()"><i class="fas fa-check"></i> SET PROFILE</button>
-                </div>
-                <canvas id="paintC" width="800" height="500"></canvas>
-            </div>
-        </div>
-
-        <div id="settings" class="page">
-            <div style="max-width: 600px; margin: 0 auto; background: var(--glass); padding: 40px; border-radius: 20px; border: 1px solid var(--border);">
-                <h2 style="font-family:'Orbitron'; margin-bottom:30px;">ECOSYSTEM THEME</h2>
-                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:15px;">
-                    <button class="tool-btn" style="background:#111; color:#fff;" onclick="setSystemTheme('dark')">DARK MODE</button>
-                    <button class="tool-btn" style="background:#f0f4f8; color:#000;" onclick="setSystemTheme('light')">LIGHT MODE</button>
-                    <button class="tool-btn" style="background:var(--accent); color:#000;" onclick="setSystemTheme('default')">DEFAULT (IMAGE)</button>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <div class="modal" id="aiModal">
-        <div class="modal-box">
-            <h2 style="font-family:'Orbitron'; color:var(--accent); margin-bottom:20px;">AI AVATAR GENERATOR</h2>
-            <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:20px;">Enter a description. Our API will dynamically generate a secure, 100% perfect animated tech avatar based on your prompt.</p>
-            <input type="text" id="aiPrompt" class="search-bar" style="border-radius:10px; background:rgba(0,0,0,0.5); margin-bottom:20px;" placeholder="e.g. Cyberpunk Space Commander">
-            <button class="modal-btn" onclick="generateAIAvatar()">GENERATE SECURE AVATAR</button>
-            <button onclick="closeModal('aiModal')" style="margin-top:20px; background:none; border:none; color:var(--text-muted); cursor:pointer;">CLOSE PROTOCOL</button>
-        </div>
+  <div class="search-container">
+    <div class="search-wrap">
+      <input type="text" id="searchInput" class="search-bar" placeholder="Search the universe..." oninput="handleSearch(this.value)" onkeydown="searchKeydown(event)" autocomplete="off">
+      <i class="fas fa-search search-icon"></i>
+      <div class="search-status" id="searchStatus">
+        <div class="s-dot"></div><div class="s-dot"></div><div class="s-dot"></div>
+        <span>SEARCHING</span>
+      </div>
+      <div class="suggestion-box" id="sugBox"></div>
     </div>
+  </div>
 
-    <div class="modal" id="accountModal">
-        <div class="modal-box" style="border-color:#ff3333;">
-            <h2 style="font-family:'Orbitron'; color:#ff3333; margin-bottom:20px;">CREATE NEW ACCOUNT</h2>
-            <p style="color:var(--text-muted); margin-bottom:20px;">Register a new entity in the SS Universe Database.</p>
-            <input type="text" id="newAccName" class="search-bar" style="border-radius:10px; background:rgba(0,0,0,0.5); margin-bottom:20px;" placeholder="Enter New Commander Name">
-            <button class="modal-btn" style="background:#ff3333; color:#fff;" onclick="createNewAccount()">INITIALIZE ACCOUNT</button>
-            <button onclick="closeModal('accountModal')" style="margin-top:20px; background:none; border:none; color:var(--text-muted); cursor:pointer;">CANCEL</button>
-        </div>
+  <div class="profile-section" onclick="toggleDropdown()">
+    <span class="profile-name-top" id="topName">Commander Shubh</span>
+    <div class="avatar-box" id="topAvatar"><i class="fas fa-user" style="font-size:1.4rem;color:var(--accent);"></i></div>
+    <div class="profile-dropdown" id="profileMenu">
+      <button class="drop-btn" id="paintDropBtn" onclick="handlePaintDrop()"><i class="fas fa-palette"></i> Paint Avatar</button>
+      <button class="drop-btn" onclick="document.getElementById('imgUploader').click()"><i class="fas fa-upload"></i> Upload Photo</button>
+      <button class="drop-btn" onclick="switchPage('settings');closeDropdown()"><i class="fas fa-adjust"></i> Profile Theme</button>
+      <button class="drop-btn drop-btn-red" onclick="handleNewAccount()"><i class="fas fa-user-plus"></i> Create New Account</button>
+      <input type="file" id="imgUploader" accept="image/*" style="display:none;" onchange="uploadImage(event)">
     </div>
+  </div>
+</header>
 
-    <script>
-        // --- NAVIGATION LOGIC ---
-        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); }
-        function switchPage(id) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
-            document.getElementById(id).classList.add('active-page');
-            document.getElementById('sidebar').classList.remove('active');
-            window.scrollTo(0,0);
+<!-- MAIN -->
+<main class="container">
+
+  <!-- HOME -->
+  <div id="home" class="page active-page">
+    <div class="hero-section">
+      <h1 class="hero-title">SS UNIVERSE</h1>
+      <p class="hero-sub">THE ULTIMATE ECOSYSTEM</p>
+      <button class="hero-btn" onclick="switchPage('alliances')"><i class="fas fa-rocket"></i>Explore Alliances</button>
+    </div>
+    <p class="alliance-section-title">— ALLIANCE NETWORK —</p>
+    <div class="alliance-grid">
+      <div class="card" onclick="switchPage('alliances')">
+        <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h3>Step by Step Learning</h3>
+        <p>Facilitating ultimate cognitive growth and educational synergy across the universe.</p>
+        <div class="card-badge"><i class="fab fa-youtube" style="color:#ff0000;margin-right:5px;"></i>YouTube Channel</div>
+      </div>
+      <div class="card" onclick="switchPage('alliances')">
+        <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+        <h3>Clicklify</h3>
+        <p>Premier computer and technical education mastery — the future of digital learning.</p>
+        <div class="card-badge"><i class="fas fa-globe" style="margin-right:5px;"></i>Website</div>
+      </div>
+      <div class="card" onclick="switchPage('alliances')">
+        <div class="card-icon"><i class="fas fa-hands-helping"></i></div>
+        <h3>Savery</h3>
+        <p>A philanthropic initiative empowering unprivileged communities globally.</p>
+        <p class="card-coming"><i class="fas fa-clock" style="margin-right:5px;"></i>Coming Soon</p>
+      </div>
+      <div class="card" onclick="switchPage('alliances')">
+        <div class="card-icon" style="border-color:rgba(255,0,0,0.3);"><i class="fab fa-youtube" style="color:#ff0000;"></i></div>
+        <h3>SS Member Hub</h3>
+        <p>Exclusive futuristic portal designed for our YouTube family and community.</p>
+        <p class="card-coming"><i class="fas fa-clock" style="margin-right:5px;"></i>Coming Soon</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI -->
+  <div id="ai" class="page">
+    <h2 class="page-title">AVISMA AI 2.0</h2>
+    <div class="ai-wrap">
+      <div class="ai-header-bar">
+        <div class="ai-status-dot"></div>
+        <span class="ai-header-title">AVISMA COMMAND CORE</span>
+        <span class="ai-header-sub">ONLINE · SS Universe Integrated</span>
+      </div>
+      <div class="chat-area" id="chatHistory">
+        <div class="ai-bubble bubble">System initialized. I am <strong>Avisma</strong> — your advanced AI integrated into the SS Universe mainframe. I possess full knowledge of the ecosystem, alliances, and can navigate any page for you. How may I assist you, Commander?</div>
+      </div>
+      <div class="chat-input-bar">
+        <input type="text" id="aiField" class="ai-input" placeholder="Ask Avisma anything...">
+        <button class="btn-send" onclick="processAvisma()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALLIANCES -->
+  <div id="alliances" class="page">
+    <h2 class="page-title">ALLIANCE NETWORK</h2>
+    <div class="alliances-grid">
+      <div class="alliance-card" onclick="openLink('https://clicklify.my.canva.site/')">
+        <div class="alliance-logo-wrap"><i class="fas fa-laptop-code"></i></div>
+        <div class="alliance-name">Clicklify</div>
+        <div class="alliance-desc">Premier computer and technical education mastery center. Lightyears ahead in digital learning architecture.</div>
+        <a class="alliance-link-btn" href="https://clicklify.my.canva.site/" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-external-link-alt"></i>Visit Website</a>
+      </div>
+      <div class="alliance-card" onclick="openLink('https://www.youtube.com/@StepbyStepofficialLearning-h3w')">
+        <div class="alliance-logo-wrap" style="background:rgba(255,0,0,0.05);border-color:rgba(255,0,0,0.3);"><i class="fab fa-youtube" style="color:#ff0000;"></i></div>
+        <div class="alliance-name">Step by Step Learning</div>
+        <div class="alliance-desc">The official YouTube channel for structured, step-by-step educational content. Master every concept with clarity.</div>
+        <a class="alliance-link-btn" href="https://www.youtube.com/@StepbyStepofficialLearning-h3w" target="_blank" onclick="event.stopPropagation()" style="color:#ff0000;border-color:rgba(255,0,0,0.3);"><i class="fab fa-youtube"></i>YouTube Channel</a>
+      </div>
+      <div class="alliance-card" style="cursor:default;">
+        <div class="alliance-logo-wrap" style="opacity:0.5;"><i class="fas fa-hands-helping"></i></div>
+        <div class="alliance-name" style="opacity:0.7;">Savery</div>
+        <div class="alliance-desc">A philanthropic initiative designed to empower unprivileged communities. Building a better world through action.</div>
+        <div class="alliance-soon"><i class="fas fa-satellite-dish"></i>Coming in the Future</div>
+      </div>
+      <div class="alliance-card" style="cursor:default;">
+        <div class="alliance-logo-wrap" style="opacity:0.5;"><i class="fas fa-users"></i></div>
+        <div class="alliance-name" style="opacity:0.7;">SS Member Hub</div>
+        <div class="alliance-desc">Exclusive futuristic portal designed for the SS Universe YouTube family — premium resources, community access.</div>
+        <div class="alliance-soon"><i class="fas fa-satellite-dish"></i>Coming in the Future</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RATINGS -->
+  <div id="ratings" class="page">
+    <h2 class="page-title">GLOBAL RATINGS</h2>
+    <div class="ratings-grid">
+      <div class="rating-card">
+        <div class="stars">★★★★★</div>
+        <p class="rating-text">"The Clicklify educational platform is lightyears ahead of standard tech courses. Absolute mastery delivered with precision."</p>
+        <div class="rating-author">— Tech Visionary Magazine</div>
+      </div>
+      <div class="rating-card">
+        <div class="stars">★★★★★</div>
+        <p class="rating-text">"Step by Step Learning provided the ultimate cognitive framework for my career trajectory. An incredible ecosystem."</p>
+        <div class="rating-author">— Senior Software Engineer</div>
+      </div>
+      <div class="rating-card">
+        <div class="stars">★★★★★</div>
+        <p class="rating-text">"Avisma AI is phenomenal. The fluid UI and theme engine make this the most premium experience on the internet."</p>
+        <div class="rating-author">— Digital Architecture Review</div>
+      </div>
+      <div class="rating-card">
+        <div class="stars">★★★★★</div>
+        <p class="rating-text">"The SS Universe ecosystem is a testament to next-generation platform design. Every detail is meticulously crafted."</p>
+        <div class="rating-author">— Global Tech Observer</div>
+      </div>
+      <div class="rating-card">
+        <div class="stars">★★★★★</div>
+        <p class="rating-text">"Unmatched educational resources combined with a beautiful interface. The Savery initiative speaks to a higher mission."</p>
+        <div class="rating-author">— Education Innovation Forum</div>
+      </div>
+      <div class="rating-card">
+        <div class="stars">★★★★★</div>
+        <p class="rating-text">"I have explored dozens of digital ecosystems — SS Universe stands alone at the top. Future-forward and extraordinary."</p>
+        <div class="rating-author">— Enterprise Technology Digest</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVATAR STUDIO -->
+  <div id="paint" class="page">
+    <h2 class="page-title">AVATAR STUDIO PRO</h2>
+    <div class="studio-layout">
+      <div class="tools-panel">
+        <div class="tools-section-label">COLOR</div>
+        <input type="color" id="paintColor" value="#00f2fe" class="color-swatch">
+        <div class="tools-section-label">SIZE</div>
+        <input type="range" id="paintSize" min="1" max="80" value="8" class="size-slider">
+        <div class="tools-section-label">TOOLS</div>
+        <button class="tool-btn active" onclick="pTool('pen')" id="bt-pen"><i class="fas fa-pen"></i>PEN</button>
+        <button class="tool-btn" onclick="pTool('eraser')" id="bt-eraser"><i class="fas fa-eraser"></i>ERASER</button>
+        <button class="tool-btn" onclick="pUndo()"><i class="fas fa-undo"></i>UNDO</button>
+        <button class="tool-btn" onclick="pRedo()"><i class="fas fa-redo"></i>REDO</button>
+        <button class="tool-btn danger" onclick="pClear()"><i class="fas fa-trash"></i>CLEAR</button>
+        <button class="tool-btn success" onclick="applyCanvasAvatar()"><i class="fas fa-check"></i>SET AVATAR</button>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="paintC" width="700" height="480"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div id="settings" class="page">
+    <h2 class="page-title">ECOSYSTEM SETTINGS</h2>
+    <div class="settings-grid">
+      <div class="settings-card">
+        <h3><i class="fas fa-palette" style="margin-right:10px;"></i>THEME ENGINE</h3>
+        <div class="theme-btns">
+          <button class="theme-btn" onclick="setSystemTheme('default')"><i class="fas fa-globe" style="color:var(--accent);"></i>Default (Cosmic)</button>
+          <button class="theme-btn" onclick="setSystemTheme('dark')"><i class="fas fa-moon" style="color:#888;"></i>Pure Dark Mode</button>
+          <button class="theme-btn" onclick="setSystemTheme('light')"><i class="fas fa-sun" style="color:#ffd700;"></i>Light Mode</button>
+        </div>
+      </div>
+      <div class="settings-card">
+        <h3><i class="fas fa-user-circle" style="margin-right:10px;"></i>ACCOUNT INFO</h3>
+        <div class="settings-info-row">
+          <span class="settings-label">Commander</span>
+          <span class="settings-value" id="settingsName">Shubh</span>
+        </div>
+        <div class="settings-info-row">
+          <span class="settings-label">Ecosystem</span>
+          <span class="settings-value">SS Universe</span>
+        </div>
+        <div class="settings-info-row">
+          <span class="settings-label">Version</span>
+          <span class="settings-value">v3.0 Ultra</span>
+        </div>
+        <div class="settings-info-row">
+          <span class="settings-label">AI Core</span>
+          <span class="settings-value">Avisma 2.0</span>
+        </div>
+      </div>
+      <div class="settings-card" id="paintSettingsCard">
+        <h3><i class="fas fa-paint-brush" style="margin-right:10px;"></i>AVATAR STUDIO</h3>
+        <p style="color:var(--text-muted);font-size:0.88rem;line-height:1.65;margin-bottom:18px;">Access the Avatar Studio to create and customize your profile image with paint tools.</p>
+        <button class="theme-btn" onclick="switchPage('paint');closeSidebar()"><i class="fas fa-paint-brush" style="color:var(--accent);"></i>Open Avatar Studio</button>
+        <div style="margin-top:15px;padding-top:15px;border-top:1px solid var(--border2);">
+          <button class="theme-btn" style="color:#ff6060;" onclick="removePaintAccess()"><i class="fas fa-eye-slash" style="color:#ff6060;"></i>Remove Paint Access</button>
+        </div>
+      </div>
+      <div class="settings-card">
+        <h3><i class="fas fa-shield-alt" style="margin-right:10px;"></i>SECURITY</h3>
+        <div class="settings-info-row">
+          <span class="settings-label">Encryption</span>
+          <span class="settings-value" style="color:#00ff88;">ACTIVE</span>
+        </div>
+        <div class="settings-info-row">
+          <span class="settings-label">Data Protection</span>
+          <span class="settings-value" style="color:#00ff88;">ENABLED</span>
+        </div>
+        <div class="settings-info-row">
+          <span class="settings-label">Session</span>
+          <span class="settings-value" style="color:#00ff88;">SECURE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPDATES PAGE -->
+  <div id="updates" class="page">
+    <h2 class="page-title">SYSTEM UPDATES</h2>
+    <div class="updates-timeline">
+      <div class="update-item" style="animation-delay:0.05s">
+        <div class="update-dot"><i class="fas fa-rocket"></i></div>
+        <div class="update-body">
+          <div class="update-version">v3.0</div>
+          <div class="update-title">Ultra Premium UI Overhaul</div>
+          <div class="update-desc">Complete redesign with animated gradient headers, glass morphism cards, particle background, premium typography and ultra-smooth page transitions throughout the ecosystem.</div>
+          <div class="update-tag">MAJOR</div>
+          <div class="update-date">June 2025</div>
+        </div>
+      </div>
+      <div class="update-item" style="animation-delay:0.1s">
+        <div class="update-dot"><i class="fas fa-brain"></i></div>
+        <div class="update-body">
+          <div class="update-version">v3.0</div>
+          <div class="update-title">Avisma AI 2.0 — Supercharged Intelligence</div>
+          <div class="update-desc">Avisma AI upgraded with full web knowledge, page navigation commands, alliance awareness, and deeper ecosystem integration. Now powered by the Anthropic API for super-intelligent, professional responses.</div>
+          <div class="update-tag">MAJOR</div>
+          <div class="update-date">June 2025</div>
+        </div>
+      </div>
+      <div class="update-item" style="animation-delay:0.15s">
+        <div class="update-dot"><i class="fas fa-bell"></i></div>
+        <div class="update-body">
+          <div class="update-version">v3.0</div>
+          <div class="update-title">Updates Page Added to Navigation Menu</div>
+          <div class="update-desc">A dedicated Updates page is now accessible from the three-line navigation menu, keeping you informed of all ecosystem changes, new features, and improvements in real time.</div>
+          <div class="update-tag">NEW FEATURE</div>
+          <div class="update-date">June 2025</div>
+        </div>
+      </div>
+      <div class="update-item" style="animation-delay:0.2s">
+        <div class="update-dot"><i class="fas fa-link"></i></div>
+        <div class="update-body">
+          <div class="update-version">v3.0</div>
+          <div class="update-title">Alliances Page with Live Links</div>
+          <div class="update-desc">A dedicated Alliances page now showcases all four alliance members — Clicklify, Step by Step Learning, Savery, and SS Member Hub — complete with logos and functional external links.</div>
+          <div class="update-tag">NEW PAGE</div>
+          <div class="update-date">June 2025</div>
+        </div>
+      </div>
+      <div class="update-item" style="animation-delay:0.25s">
+        <div class="update-dot"><i class="fas fa-search"></i></div>
+        <div class="update-body">
+          <div class="update-version">v3.0</div>
+          <div class="update-title">Smart Search with Animated Searching State</div>
+          <div class="update-desc">Search bar now shows an animated "SEARCHING" indicator for 0.9 seconds with three animated dots before displaying results. Smart suggestions appear instantly as you type, with availability checking.</div>
+          <div class="update-tag">ENHANCED</div>
+          <div class="update-date">June 2025</div>
+        </div>
+      </div>
+      <div class="update-item" style="animation-delay:0.3s">
+        <div class="update-dot"><i class="fas fa-paint-brush"></i></div>
+        <div class="update-body">
+          <div class="update-version">v3.0</div>
+          <div class="update-title">Paint Access Control System</div>
+          <div class="update-desc">Ecosystem Settings now includes the ability to remove Paint/Avatar Studio access. When removed, the tool is hidden from the current account. New accounts can still access it via login, and the option reappears on new account creation.</div>
+          <div class="update-tag">NEW FEATURE</div>
+          <div class="update-date">June 2025</div>
+        </div>
+      </div>
+      <div class="update-item" style="animation-delay:0.35s">
+        <div class="update-dot"><i class="fas fa-user-plus"></i></div>
+        <div class="update-body">
+          <div class="update-version">v3.0</div>
+          <div class="update-title">Login Page for New Account Creation</div>
+          <div class="update-desc">Creating a new account now opens a full-screen premium login/registration page instead of a simple modal. The Paint option is restored for new accounts automatically.</div>
+          <div class="update-tag">ENHANCED</div>
+          <div class="update-date">June 2025</div>
+        </div>
+      </div>
+      <div class="update-item" style="animation-delay:0.4s">
+        <div class="update-dot"><i class="fas fa-mobile-alt"></i></div>
+        <div class="update-body">
+          <div class="update-version">v3.0</div>
+          <div class="update-title">Full Responsive Layout — All Devices</div>
+          <div class="update-desc">Fully responsive design for mobile, tablet, desktop, Smart TV, and ultra-wide screens. Adaptive layouts, fluid typography, and touch-optimized interactions across all form factors.</div>
+          <div class="update-tag">ENHANCEMENT</div>
+          <div class="update-date">June 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="modal" style="position:fixed;z-index:9000;">
+  <div class="login-box">
+    <div class="login-logo">SS UNIVERSE</div>
+    <div class="login-tagline">CREATE NEW ACCOUNT</div>
+    <input type="text" id="loginName" class="login-input" placeholder="Commander Name">
+    <input type="email" id="loginEmail" class="login-input" placeholder="Email Address (optional)">
+    <button class="login-btn" onclick="finalizeNewAccount()">INITIALIZE ACCOUNT</button>
+    <div class="login-or">— OR —</div>
+    <button onclick="closeLoginPage()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.88rem;transition:0.3s;" onmouseover="this.style.color='var(--text-white)'" onmouseout="this.style.color='var(--text-muted)'">Cancel · Return to Ecosystem</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-title" id="toastTitle">NOTIFICATION</div>
+  <div class="toast-msg" id="toastMsg">Message here</div>
+</div>
+
+<script>
+// ====================================================
+// SS UNIVERSE — CORE SYSTEM v3.0
+// ====================================================
+
+// --- STATE ---
+let paintAccessEnabled = true;
+let searchTimer = null;
+const currentUser = { name: 'Commander Shubh' };
+
+// --- PARTICLE SYSTEM ---
+(function(){
+  const canvas = document.getElementById('particleCanvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+  
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+  
+  class Particle {
+    constructor(){ this.reset(); }
+    reset(){
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.r = Math.random() * 1.5 + 0.5;
+      this.a = Math.random() * 0.5 + 0.1;
+    }
+    update(){
+      this.x += this.vx; this.y += this.vy;
+      if(this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+    }
+    draw(){
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(0,242,254,${this.a})`;
+      ctx.fill();
+    }
+  }
+  
+  for(let i = 0; i < 80; i++) particles.push(new Particle());
+  
+  function loop(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p => { p.update(); p.draw(); });
+    // Draw connections
+    for(let i = 0; i < particles.length; i++){
+      for(let j = i+1; j < particles.length; j++){
+        let dx = particles[i].x - particles[j].x;
+        let dy = particles[i].y - particles[j].y;
+        let dist = Math.sqrt(dx*dx+dy*dy);
+        if(dist < 100){
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(0,242,254,${0.08*(1-dist/100)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
         }
+      }
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
 
-        // --- PROFILE DROPDOWN LOGIC ---
-        function toggleDropdown() { document.getElementById('profileMenu').classList.toggle('show'); }
-        window.onclick = function(e) {
-            if (!e.target.closest('.profile-section')) {
-                let d = document.getElementById("profileMenu");
-                if (d.classList.contains('show')) d.classList.remove('show');
-            }
-        }
+// --- NAVIGATION ---
+function switchPage(id){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+  const el = document.getElementById(id);
+  if(el){ el.classList.add('active-page'); }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
-        // --- WORKING SEARCH SUGGESTIONS ---
-        const sugDatabase = ["Clicklify Tech Center", "Step by Step Learning", "Savery Initiative", "The Developing Ones", "Avisma AI Core", "Paint Avatar", "Global Ratings", "SS Member Hub"];
-        function handleSearch() {
-            let val = document.getElementById('searchInput').value.toLowerCase();
-            let box = document.getElementById('sugBox');
-            box.innerHTML = '';
-            if(val.length === 0) { box.style.display = 'none'; return; }
-            
-            let matches = sugDatabase.filter(item => item.toLowerCase().includes(val));
-            if(matches.length > 0) {
-                box.style.display = 'flex';
-                matches.forEach(m => {
-                    let div = document.createElement('div');
-                    div.className = 'suggestion-item';
-                    div.innerText = m;
-                    div.onclick = () => {
-                        document.getElementById('searchInput').value = m;
-                        box.style.display = 'none';
-                    };
-                    box.appendChild(div);
-                });
-            } else { box.style.display = 'none'; }
-        }
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('active');
+  document.getElementById('sidebarOverlay').classList.toggle('active');
+}
+function closeSidebar(){
+  document.getElementById('sidebar').classList.remove('active');
+  document.getElementById('sidebarOverlay').classList.remove('active');
+}
 
-        // --- DYNAMIC THEME ENGINE ---
-        function setSystemTheme(theme) {
-            document.body.className = theme === 'light' ? 'light-theme' : (theme === 'dark' ? 'dark-theme' : '');
-            localStorage.setItem('ss_theme', theme);
-        }
-        let savedTheme = localStorage.getItem('ss_theme');
-        if(savedTheme) setSystemTheme(savedTheme);
+// --- DROPDOWN ---
+function toggleDropdown(){ document.getElementById('profileMenu').classList.toggle('show'); }
+function closeDropdown(){ document.getElementById('profileMenu').classList.remove('show'); }
+window.onclick = function(e){
+  if(!e.target.closest('.profile-section')) closeDropdown();
+  if(!e.target.closest('.search-container')){
+    document.getElementById('sugBox').style.display = 'none';
+  }
+};
 
-        // --- MODAL LOGIC ---
-        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
-        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+// --- SMART SEARCH ---
+const sugDatabase = [
+  {label:"Home", icon:"fas fa-home", page:"home"},
+  {label:"Avisma AI 2.0", icon:"fas fa-brain", page:"ai"},
+  {label:"Clicklify", icon:"fas fa-laptop-code", page:"alliances"},
+  {label:"Step by Step Learning", icon:"fas fa-graduation-cap", page:"alliances"},
+  {label:"Savery Initiative", icon:"fas fa-hands-helping", page:"alliances"},
+  {label:"SS Member Hub", icon:"fas fa-users", page:"alliances"},
+  {label:"Alliances", icon:"fas fa-link", page:"alliances"},
+  {label:"Global Ratings", icon:"fas fa-star", page:"ratings"},
+  {label:"Avatar Studio", icon:"fas fa-paint-brush", page:"paint"},
+  {label:"Ecosystem Settings", icon:"fas fa-cog", page:"settings"},
+  {label:"Updates", icon:"fas fa-bell", page:"updates"},
+];
 
-        // --- REAL AI IMAGE GENERATION (DICEBEAR API) ---
-        function generateAIAvatar() {
-            let prompt = document.getElementById('aiPrompt').value.trim();
-            if(!prompt) { alert("Please provide a description."); return; }
-            
-            // Simple security check
-            const banned = ["bad", "hack", "illegal", "offensive"];
-            if(banned.some(w => prompt.toLowerCase().includes(w))) {
-                alert("SS SECURITY: Prompt denied. Inappropriate terms detected.");
-                return;
-            }
+function handleSearch(val){
+  const box = document.getElementById('sugBox');
+  const status = document.getElementById('searchStatus');
+  box.style.display = 'none';
+  if(searchTimer) clearTimeout(searchTimer);
+  if(!val.trim()){ status.style.display = 'none'; return; }
 
-            // Using DiceBear Bottts API to literally generate an image based on the prompt text!
-            let apiURL = `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(prompt)}&backgroundColor=000000`;
-            
-            document.getElementById('topAvatar').innerHTML = `<img src="${apiURL}" style="width:100%; height:100%; object-fit:cover;">`;
-            alert("AI Image generated successfully from prompt!");
-            closeModal('aiModal');
-        }
-
-        // --- CREATE NEW ACCOUNT (RED BUTTON LOGIC) ---
-        function createNewAccount() {
-            let newName = document.getElementById('newAccName').value.trim();
-            if(!newName) { alert("Name required."); return; }
-            
-            // Update UI globally
-            document.getElementById('topName').innerText = newName;
-            document.getElementById('topAvatar').innerHTML = `<i class="fas fa-user" style="font-size: 1.5rem;"></i>`; // Reset Avatar
-            alert(`Welcome to SS Universe, ${newName}! Account initialized.`);
-            closeModal('accountModal');
-            switchPage('home');
-        }
-
-        // --- UPLOAD PHOTO LOGIC ---
-        function uploadImage(e) {
-            let file = e.target.files[0];
-            if(file) {
-                let reader = new FileReader();
-                reader.onload = (event) => {
-                    document.getElementById('topAvatar').innerHTML = `<img src="${event.target.result}" style="width:100%; height:100%; object-fit:cover;">`;
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-
-        // --- ADVANCED AVISMA CHATBOT ---
-        function processAvisma() {
-            let inp = document.getElementById('aiField');
-            let chat = document.getElementById('chatHistory');
-            let q = inp.value.trim();
-            if(!q) return;
-
-            chat.innerHTML += `<div class="user bubble">${q}</div>`;
-            inp.value = '';
-            
-            // Show Typing indicator
-            let typingId = "type-" + Date.now();
-            chat.innerHTML += `<div id="${typingId}" class="ai bubble typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
-            chat.scrollTop = chat.scrollHeight;
-
-            setTimeout(() => {
-                document.getElementById(typingId).remove();
-                
-                let ans = "I am processing your command. I am fully equipped to handle ecosystem tasks. Check out our Alliances or Ratings.";
-                let text = q.toLowerCase();
-                
-                // Advanced Knowledge Mapping
-                if(text.includes('clicklify')) ans = "Clicklify is our flagship Technical Education alliance. It ensures absolute mastery in computer sciences.";
-                else if(text.includes('savery')) ans = "Savery focuses on global philanthropic efforts, lifting up underprivileged sectors.";
-                else if(text.includes('hub')) ans = "The SS Member Hub is built exclusively for our YouTube community to access premium resources.";
-                else if(text.includes('rating')) ans = "We have removed member rankings and replaced them with Global Ratings. Check the Ratings tab to see 5-star reviews!";
-                else if(text.includes('who are you') || text.includes('name')) ans = "I am Avisma. An advanced AI designed for Commander Shubh's SS Universe ecosystem.";
-
-                chat.innerHTML += `<div class="ai bubble">${ans}</div>`;
-                chat.scrollTop = chat.scrollHeight;
-            }, 1200);
-        }
-        document.getElementById('aiField').addEventListener('keypress', (e) => { if(e.key === 'Enter') processAvisma(); });
-
-        // --- FLAWLESS PAINT STUDIO (UNDO/REDO) ---
-        const canvas = document.getElementById('paintC');
-        const ctx = canvas.getContext('2d');
-        let painting = false, tool = 'pen';
-        let paintHistory = []; let pStep = -1;
-
-        // Init white canvas
-        ctx.fillStyle = "#ffffff"; ctx.fillRect(0,0,800,500);
-        savePaintStep();
-
-        function savePaintStep() {
-            pStep++;
-            if(pStep < paintHistory.length) paintHistory.length = pStep;
-            paintHistory.push(canvas.toDataURL());
-        }
-
-        function pTool(t) {
-            tool = t;
-            document.querySelectorAll('#paint .tool-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('bt-' + t).classList.add('active');
-        }
-
-        canvas.onmousedown = (e) => {
-            painting = true; ctx.beginPath();
-            ctx.lineWidth = document.getElementById('paintSize').value;
-            ctx.lineCap = 'round';
-            ctx.strokeStyle = tool === 'eraser' ? '#ffffff' : document.getElementById('paintColor').value;
-            ctx.moveTo(e.offsetX, e.offsetY);
+  status.style.display = 'flex';
+  searchTimer = setTimeout(() => {
+    status.style.display = 'none';
+    const matches = sugDatabase.filter(i => i.label.toLowerCase().includes(val.toLowerCase()));
+    box.innerHTML = '';
+    if(matches.length > 0){
+      matches.forEach(m => {
+        const div = document.createElement('div');
+        div.className = 'suggestion-item';
+        div.innerHTML = `<i class="${m.icon}"></i>${m.label}`;
+        div.onclick = () => {
+          document.getElementById('searchInput').value = m.label;
+          box.style.display = 'none';
+          switchPage(m.page);
         };
-        canvas.onmousemove = (e) => { if(painting) { ctx.lineTo(e.offsetX, e.offsetY); ctx.stroke(); } };
-        canvas.onmouseup = () => { painting = false; savePaintStep(); };
+        box.appendChild(div);
+      });
+    } else {
+      box.innerHTML = `<div class="sug-not-found"><i class="fas fa-search" style="margin-right:8px;"></i>No results for "${val}"</div>`;
+    }
+    box.style.display = 'flex';
+  }, 900);
+}
 
-        function pUndo() {
-            if(pStep > 0) {
-                pStep--; let img = new Image(); img.src = paintHistory[pStep];
-                img.onload = () => { ctx.clearRect(0,0,800,500); ctx.drawImage(img,0,0); };
-            }
-        }
-        function pRedo() {
-            if(pStep < paintHistory.length - 1) {
-                pStep++; let img = new Image(); img.src = paintHistory[pStep];
-                img.onload = () => { ctx.clearRect(0,0,800,500); ctx.drawImage(img,0,0); };
-            }
-        }
-        function pClear() { ctx.clearRect(0,0,800,500); ctx.fillStyle="#ffffff"; ctx.fillRect(0,0,800,500); savePaintStep(); }
-        
-        function applyCanvasAvatar() {
-            document.getElementById('topAvatar').innerHTML = `<img src="${canvas.toDataURL()}" style="width:100%; height:100%; object-fit:cover;">`;
-            alert('Custom Paint Avatar Applied!');
-        }
+function searchKeydown(e){
+  if(e.key === 'Enter'){
+    const val = e.target.value.trim();
+    if(val) handleSearch(val);
+  }
+}
 
-    </script>
+// --- THEME ---
+function setSystemTheme(theme){
+  const body = document.body;
+  body.className = theme === 'light' ? 'light-theme' : theme === 'dark' ? 'dark-theme' : '';
+  localStorage.setItem('ss_theme', theme);
+  showToast('THEME UPDATED', theme.toUpperCase() + ' MODE ACTIVATED');
+}
+const savedTheme = localStorage.getItem('ss_theme');
+if(savedTheme) setSystemTheme(savedTheme);
+
+// --- TOAST ---
+function showToast(title, msg, duration=3000){
+  const t = document.getElementById('toast');
+  document.getElementById('toastTitle').textContent = title;
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
+}
+
+// --- UPLOAD IMAGE ---
+function uploadImage(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    document.getElementById('topAvatar').innerHTML = `<img src="${ev.target.result}">`;
+    showToast('AVATAR UPDATED', 'Photo uploaded successfully');
+  };
+  reader.readAsDataURL(file);
+}
+
+// --- PAINT ACCESS CONTROL ---
+function handlePaintSidebar(){
+  if(!paintAccessEnabled){ showToast('ACCESS RESTRICTED','Paint access has been removed from this account.'); return; }
+  switchPage('paint');
+}
+function handlePaintDrop(){
+  closeDropdown();
+  if(!paintAccessEnabled){ showToast('ACCESS RESTRICTED','Paint access has been removed from this account.'); return; }
+  switchPage('paint');
+}
+function removePaintAccess(){
+  paintAccessEnabled = false;
+  // Hide from sidebar and dropdown
+  document.getElementById('paintSidebarLink').style.opacity = '0.3';
+  document.getElementById('paintSidebarLink').style.pointerEvents = 'none';
+  document.getElementById('paintDropBtn').style.display = 'none';
+  document.getElementById('paintSettingsCard').querySelector('.theme-btn:last-child').textContent = '✓ Paint Access Removed';
+  showToast('PAINT REMOVED', 'Avatar Studio removed from this account');
+}
+
+// --- ACCOUNT SYSTEM ---
+function handleNewAccount(){
+  closeDropdown();
+  document.getElementById('loginPage').classList.add('open');
+}
+function closeLoginPage(){
+  document.getElementById('loginPage').classList.remove('open');
+}
+function finalizeNewAccount(){
+  const name = document.getElementById('loginName').value.trim();
+  if(!name){ showToast('ERROR','Commander name is required.'); return; }
+  // New account restores paint access
+  paintAccessEnabled = true;
+  document.getElementById('paintSidebarLink').style.opacity = '1';
+  document.getElementById('paintSidebarLink').style.pointerEvents = '';
+  document.getElementById('paintDropBtn').style.display = 'flex';
+  // Update name
+  document.getElementById('topName').textContent = name;
+  document.getElementById('settingsName').textContent = name;
+  currentUser.name = name;
+  // Reset avatar
+  document.getElementById('topAvatar').innerHTML = '<i class="fas fa-user" style="font-size:1.4rem;color:var(--accent);"></i>';
+  closeLoginPage();
+  switchPage('home');
+  showToast('WELCOME', `Account initialized for ${name}!`, 4000);
+  document.getElementById('loginName').value = '';
+  document.getElementById('loginEmail').value = '';
+}
+
+// --- OPEN EXTERNAL LINK ---
+function openLink(url){ window.open(url,'_blank'); }
+
+// --- AVISMA AI 2.0 (CLAUDE-POWERED) ---
+const ECOSYSTEM_KNOWLEDGE = {
+  pages: {
+    home: ['home','main','start','welcome','universe home'],
+    ai: ['ai','avisma','chat','assistant','intelligence'],
+    alliances: ['alliance','alliances','partners','clicklify','savery','hub','member'],
+    ratings: ['rating','ratings','review','reviews','stars'],
+    paint: ['paint','avatar','studio','draw','canvas','brush'],
+    settings: ['setting','settings','theme','configuration','preferences','ecosystem settings'],
+    updates: ['update','updates','changelog','new features','whats new','news'],
+  },
+  facts: {
+    clicklify: 'Clicklify is a premier technical education platform — part of the SS Universe Alliance Network. Website: https://clicklify.my.canva.site/',
+    savery: 'Savery is a philanthropic initiative within SS Universe, focused on empowering underprivileged communities. It is currently in development and coming in the future.',
+    hub: 'SS Member Hub is an exclusive portal for the SS Universe YouTube community. It is currently under development and coming in the future.',
+    stepbystep: 'Step by Step Learning is an official YouTube channel within the SS Universe Alliance. It offers structured, step-by-step educational content. Channel: https://www.youtube.com/@StepbyStepofficialLearning-h3w',
+    avisma: 'I am Avisma — an advanced AI system integrated into the SS Universe mainframe. I was designed to serve Commander Shubh\'s ecosystem with full knowledge, professional intelligence, and superior assistance.',
+    creator: 'SS Universe was built by Commander Shubh — a visionary architect of digital ecosystems.',
+    universe: 'SS Universe is the ultimate digital ecosystem, housing alliances like Clicklify, Step by Step Learning, Savery, and SS Member Hub — along with Avisma AI, Avatar Studio, Global Ratings, and premium tools.',
+  }
+};
+
+function processAvisma(){
+  const inp = document.getElementById('aiField');
+  const chat = document.getElementById('chatHistory');
+  const q = inp.value.trim();
+  if(!q) return;
+  inp.value = '';
+
+  chat.innerHTML += `<div class="user-bubble bubble">${escapeHtml(q)}</div>`;
+
+  const typingId = 'type-' + Date.now();
+  chat.innerHTML += `<div id="${typingId}" class="ai-bubble bubble"><div class="typing-ind"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`;
+  chat.scrollTop = chat.scrollHeight;
+
+  setTimeout(async () => {
+    document.getElementById(typingId)?.remove();
+    const ans = await getAvismaResponse(q);
+    chat.innerHTML += `<div class="ai-bubble bubble">${ans}</div>`;
+    chat.scrollTop = chat.scrollHeight;
+  }, 1100);
+}
+
+async function getAvismaResponse(q){
+  const lq = q.toLowerCase();
+
+  // PAGE NAVIGATION COMMAND
+  for(const [page, triggers] of Object.entries(ECOSYSTEM_KNOWLEDGE.pages)){
+    if(triggers.some(t => lq.includes(t) && (lq.includes('open') || lq.includes('go to') || lq.includes('take me') || lq.includes('navigate') || lq.includes('show me')))){
+      const pageNames = {home:'Universe Home',ai:'Avisma AI',alliances:'Alliances',ratings:'Global Ratings',paint:'Avatar Studio',settings:'Ecosystem Settings',updates:'Updates'};
+      // Check if page exists
+      if(page === 'paint' && !paintAccessEnabled){
+        return 'I attempted to open Avatar Studio, but access has been restricted for this account. You may restore access by creating a new account or adjusting settings.';
+      }
+      const el = document.getElementById(page);
+      if(el){
+        setTimeout(() => switchPage(page), 600);
+        return `<i class="fas fa-check-circle" style="color:var(--accent);margin-right:8px;"></i>Opening <strong>${pageNames[page] || page}</strong>...`;
+      } else {
+        return `<i class="fas fa-exclamation-triangle" style="color:#ffc107;margin-right:8px;"></i>Page not found in the SS Universe ecosystem.`;
+      }
+    }
+  }
+
+  // KNOWLEDGE RESPONSES
+  if(lq.includes('clicklify')) return ECOSYSTEM_KNOWLEDGE.facts.clicklify;
+  if(lq.includes('savery')) return ECOSYSTEM_KNOWLEDGE.facts.savery;
+  if(lq.includes('member hub') || lq.includes('ss member')) return ECOSYSTEM_KNOWLEDGE.facts.hub;
+  if(lq.includes('step by step') || lq.includes('stepbystep') || lq.includes('youtube')) return ECOSYSTEM_KNOWLEDGE.facts.stepbystep;
+  if(lq.includes('who are you') || lq.includes('your name') || lq.includes('avisma')) return ECOSYSTEM_KNOWLEDGE.facts.avisma;
+  if(lq.includes('who made') || lq.includes('creator') || lq.includes('shubh')) return ECOSYSTEM_KNOWLEDGE.facts.creator;
+  if(lq.includes('ss universe') || lq.includes('ecosystem')) return ECOSYSTEM_KNOWLEDGE.facts.universe;
+  if(lq.includes('rating') || lq.includes('review')) return 'The Global Ratings page showcases 5-star reviews from technology visionaries, engineers, and industry publications. The SS Universe has received universally excellent ratings. Say "open ratings" to navigate there.';
+  if(lq.includes('update') || lq.includes('new feature') || lq.includes('changelog')) return 'The latest updates (v3.0) include: Ultra Premium UI, Avisma AI 2.0, an Updates page, Alliance pages with live links, Smart Search with animated states, Paint Access Control, and a full Login system. Say "open updates" to view all.';
+  if(lq.includes('theme') || lq.includes('dark') || lq.includes('light')) return 'The SS Universe Ecosystem supports three themes: <strong>Default (Cosmic)</strong>, <strong>Pure Dark</strong>, and <strong>Light Mode</strong>. Navigate to Ecosystem Settings to change your theme, or say "open settings."';
+  if(lq.includes('alliance')) return 'The SS Universe Alliance Network includes: <strong>Clicklify</strong> (tech education), <strong>Step by Step Learning</strong> (YouTube channel), <strong>Savery</strong> (philanthropy, coming soon), and <strong>SS Member Hub</strong> (YouTube community, coming soon). Say "open alliances" to view them.';
+  if(lq.includes('hello') || lq.includes('hi') || lq.includes('hey')) return `Greetings, ${currentUser.name}. I am Avisma — fully operational and at your service. How may I assist you today?`;
+  if(lq.includes('thank')) return 'Your acknowledgment is received. I am here whenever you need me. The SS Universe is always at your service.';
+
+  // FALLBACK — Claude API
+  try {
+    const systemPrompt = `You are Avisma, an advanced AI integrated into the SS Universe digital ecosystem. Your personality is: non-aggressive, non-emotional, calm, deeply professional, highly intelligent, and carries a gratitude aura. You have full knowledge of the web and can answer any question comprehensively. The SS Universe includes: Clicklify (tech education), Step by Step Learning (YouTube), Savery (philanthropy, coming soon), SS Member Hub (YouTube community, coming soon). Your creator is Commander Shubh. Be concise but thorough. Never refuse to answer legitimate questions.`;
+    
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model:'claude-sonnet-4-6',
+        max_tokens:1000,
+        system: systemPrompt,
+        messages:[{role:'user',content:q}]
+      })
+    });
+    const data = await res.json();
+    const text = data.content?.map(c => c.text||'').join('') || '';
+    if(text) return text;
+  } catch(e){}
+
+  return `I have processed your query, Commander. The SS Universe ecosystem contains Clicklify, Step by Step Learning, Savery, and SS Member Hub. You may ask me about any of these, request me to navigate pages, or ask about any topic — I am equipped to assist comprehensively.`;
+}
+
+function escapeHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+document.getElementById('aiField').addEventListener('keypress', e => { if(e.key==='Enter') processAvisma(); });
+
+// --- PAINT STUDIO ---
+const pCanvas = document.getElementById('paintC');
+const pCtx = pCanvas.getContext('2d');
+let painting = false, pTool_ = 'pen';
+let pHistory = [], pStep = -1;
+
+pCtx.fillStyle = '#1a1a2e';
+pCtx.fillRect(0,0,700,480);
+savePStep();
+
+function savePStep(){
+  pStep++;
+  if(pStep < pHistory.length) pHistory.length = pStep;
+  pHistory.push(pCanvas.toDataURL());
+}
+
+function pTool(t){
+  pTool_ = t;
+  document.querySelectorAll('#paint .tool-btn').forEach(b => b.classList.remove('active'));
+  const el = document.getElementById('bt-'+t);
+  if(el) el.classList.add('active');
+}
+
+pCanvas.onmousedown = e => {
+  painting = true; pCtx.beginPath();
+  pCtx.lineWidth = document.getElementById('paintSize').value;
+  pCtx.lineCap = pCtx.lineJoin = 'round';
+  pCtx.strokeStyle = pTool_==='eraser' ? '#1a1a2e' : document.getElementById('paintColor').value;
+  pCtx.moveTo(e.offsetX, e.offsetY);
+};
+pCanvas.onmousemove = e => { if(painting){ pCtx.lineTo(e.offsetX, e.offsetY); pCtx.stroke(); } };
+pCanvas.onmouseup = () => { painting = false; savePStep(); };
+pCanvas.onmouseleave = () => { painting = false; };
+
+// Touch support
+pCanvas.addEventListener('touchstart', e => {
+  e.preventDefault();
+  const t = e.touches[0];
+  const r = pCanvas.getBoundingClientRect();
+  pCanvas.onmousedown({offsetX:t.clientX-r.left, offsetY:t.clientY-r.top});
+},{passive:false});
+pCanvas.addEventListener('touchmove', e => {
+  e.preventDefault();
+  const t = e.touches[0];
+  const r = pCanvas.getBoundingClientRect();
+  pCanvas.onmousemove({offsetX:t.clientX-r.left, offsetY:t.clientY-r.top});
+},{passive:false});
+pCanvas.addEventListener('touchend', () => pCanvas.onmouseup());
+
+function pUndo(){
+  if(pStep>0){ pStep--; const img=new Image(); img.src=pHistory[pStep]; img.onload=()=>{pCtx.clearRect(0,0,700,480);pCtx.drawImage(img,0,0);} }
+}
+function pRedo(){
+  if(pStep<pHistory.length-1){ pStep++; const img=new Image(); img.src=pHistory[pStep]; img.onload=()=>{pCtx.clearRect(0,0,700,480);pCtx.drawImage(img,0,0);} }
+}
+function pClear(){ pCtx.fillStyle='#1a1a2e'; pCtx.fillRect(0,0,700,480); savePStep(); }
+function applyCanvasAvatar(){
+  document.getElementById('topAvatar').innerHTML = `<img src="${pCanvas.toDataURL()}">`;
+  showToast('AVATAR SET','Paint avatar applied successfully!');
+}
+</script>
 </body>
 </html>
